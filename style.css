@@ -10652,7 +10652,7 @@ h1, h2, h3, h4, h5, h6, p, li {
   margin: 0 auto;
 }
 .btn-cta {
-  font-size: 40px;
+  font-size: 20px;
 }
 .shadow {
   white-space: normal;
@@ -11286,7 +11286,7 @@ div.CodeMirror-scroll {
   padding: 5px 0;
 }
 .spacer {
-  padding: 15px 0 15px 0;
+  padding: 5px 0 5px 0;
 }
 .landing-heading {
   font-size: 50px !important;
