@@ -1,5 +1,4 @@
 import { createAction, handleActions } from 'redux-actions';
-import { uniqBy } from 'lodash';
 
 import { createTypes } from '../../../utils/stateManagment';
 import fecthUserEpic from './fetch-user-epic';
@@ -72,7 +71,6 @@ export const shouldShowDonationSelector = state => {
     return true;
   }
   return false;
-
 };
 
 export const reducer = handleActions(

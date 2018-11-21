@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
@@ -58,10 +59,10 @@ class IndexPage extends Component {
     console.log(this.props);
     const { email = '' } = this.props;
     return (
-      <div className="index-page-wrapper">
+      <div className='index-page-wrapper'>
         <Spacer />
         <Spacer />
-        <Helmet title="Support the freeCodeCamp.org nonprofit" />
+        <Helmet title='Support the freeCodeCamp.org nonprofit' />
         <Spacer />
         <Spacer />
         <h2 style={{ textAlign: 'center' }}>
@@ -82,7 +83,7 @@ class IndexPage extends Component {
         </StripeProvider>
         <Spacer />
         <Spacer />
-        <a href="/other-ways-to-donate">Other ways to donate.</a>
+        <a href='/other-ways-to-donate'>Other ways to donate.</a>
         <Spacer />
       </div>
     );
