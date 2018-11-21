@@ -33,6 +33,8 @@ class IndexPage extends Component {
     this.state = {
       stripe: null
     };
+
+    this.handleStripeLoad = this.handleStripeLoad.bind(this);
   }
   componentDidMount() {
     if (window.Stripe) {
@@ -42,16 +44,29 @@ class IndexPage extends Component {
         stripe: window.Stripe(stripeKey)
       }));
     } else {
-      document.querySelector('#stripe-js').addEventListener('load', () => {
-        // Create Stripe instance once Stripe.js loads
-        console.info('stripe has loaded');
-        this.setState(state => ({
-          ...state,
-          stripe: window.Stripe(stripeKey)
-        }));
-      });
+      document
+        .querySelector('#stripe-js')
+        .addEventListener('load', this.handleStripeLoad);
     }
   }
+
+  componentWillUnmount() {
+    const stripeMountPoint = document.querySelector('#stripe-js');
+
+    if (stripeMountPoint) {
+      stripeMountPoint.removeEventListener('load', this.handleStripeLoad);
+    }
+  }
+
+  handleStripeLoad() {
+    // Create Stripe instance once Stripe.js loads
+    console.info('stripe has loaded');
+    this.setState(state => ({
+      ...state,
+      stripe: window.Stripe(stripeKey)
+    }));
+  }
+
   renderCompletion(props) {
     return <DonateCompletion close={() => {}} {...props} />;
   }
@@ -64,9 +79,7 @@ class IndexPage extends Component {
         <Helmet title='Support the freeCodeCamp.org nonprofit' />
         <Spacer />
         <Spacer />
-        <h2 style={{ textAlign: 'center' }}>
-          Become a supporter
-        </h2>
+        <h2 style={{ textAlign: 'center' }}>Become a supporter</h2>
         <StripeProvider stripe={this.state.stripe}>
           <Elements>
             <Fragment>
