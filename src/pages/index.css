@@ -59,6 +59,12 @@
   border: none;
 }
 
+.donation-email-container input:focus {
+  color: #006400;
+  font-weight: normal;
+  border: none;
+}
+
 #confirm-donation-btn {
   font-size: 1.2rem;
   height: 75px;
