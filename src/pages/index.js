@@ -1,110 +1,95 @@
-/* global graphql */
-/* eslint-disable max-len */
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { StripeProvider, Elements } from 'react-stripe-elements';
+import { createSelector } from 'reselect';
 
-import {
-  ChallengeNode,
-  AllChallengeNode,
-  AllMarkdownRemark
-} from '../redux/propTypes';
+import { userSelector } from '../redux/app';
+
 import Spacer from '../components/util/Spacer';
-import Map from '../components/Map';
+import DonateForm from '../components/Donation/components/DonateForm';
+import DonateCompletion from '../components/Donation/components/DonateCompletion';
+import PoweredByStripe from '../components/icons/poweredByStripe';
 
 import './index.css';
 
-const mapStateToProps = () => ({});
-
 const propTypes = {
-  data: PropTypes.shape({
-    challengeNode: ChallengeNode,
-    allChallengeNode: AllChallengeNode,
-    allMarkdownRemark: AllMarkdownRemark
-  })
+  email: PropTypes.string,
+  show: PropTypes.bool
 };
 
-const IndexPage = ({
-  data: {
-    challengeNode: { fields: { slug } },
-    allChallengeNode: { edges },
-    allMarkdownRemark: { edges: mdEdges }
+const mapStateToProps = createSelector(userSelector, ({ email = '' }) => ({
+  email
+}));
+
+// Stripe public key
+const stripeKey = 'pk_test_gqFA9NGMJiMawvkfLSdpjjxf';
+
+class IndexPage extends Component {
+  constructor(...props) {
+    super(...props);
+    this.state = {
+      stripe: null
+    };
   }
-}) => (
-  <div className='index-page-wrapper'>
-    <Helmet title='Welcome to learn.freeCodeCamp!' />
-    <Spacer />
-    <Spacer />
-    <h2>Welcome to the freeCodeCamp curriculum</h2>
-    <p>We have thousands of coding lessons to help you improve your skills.</p>
-    <p>You can earn each certification by completing its 5 final projects.</p>
-    <p>
-      And yes - all of this is 100% free, thanks to the thousands of campers who{' '}
-      <a href='https://donate.freecodecamp.org' target='_blank'>
-        donate
-      </a>{' '}
-      to our nonprofit.
-    </p>
-    <p>
-      If you are new to coding, we recommend you{' '}
-      <Link to={slug}>start at the beginning</Link>.
-    </p>
-    <Spacer />
-    <Map
-      introNodes={mdEdges.map(({ node }) => node)}
-      nodes={edges
-        .map(({ node }) => node)
-        .filter(({ isPrivate }) => !isPrivate)}
-    />
-  </div>
-);
+  componentDidMount() {
+    if (window.Stripe) {
+      /* eslint-disable react/no-did-mount-set-state */
+      this.setState(state => ({
+        ...state,
+        stripe: window.Stripe(stripeKey)
+      }));
+    } else {
+      document.querySelector('#stripe-js').addEventListener('load', () => {
+        // Create Stripe instance once Stripe.js loads
+        console.info('stripe has loaded');
+        this.setState(state => ({
+          ...state,
+          stripe: window.Stripe(stripeKey)
+        }));
+      });
+    }
+  }
+  renderCompletion(props) {
+    return <DonateCompletion close={() => {}} {...props} />;
+  }
+  render() {
+    console.log(this.props);
+    const { email = '' } = this.props;
+    return (
+      <div className="index-page-wrapper">
+        <Spacer />
+        <Spacer />
+        <Helmet title="Support the freeCodeCamp.org nonprofit" />
+        <Spacer />
+        <Spacer />
+        <h2 style={{ textAlign: 'center' }}>
+          Support the freeCodeCamp.org nonprofit
+        </h2>
+        <StripeProvider stripe={this.state.stripe}>
+          <Elements>
+            <Fragment>
+              <DonateForm
+                email={email}
+                renderCompletion={this.renderCompletion}
+              />
+              <Spacer />
+              <PoweredByStripe />
+              <Spacer />
+            </Fragment>
+          </Elements>
+        </StripeProvider>
+        <Spacer />
+        <Spacer />
+        <a href="/other-ways-to-donate">Other ways to donate.</a>
+        <Spacer />
+      </div>
+    );
+  }
+}
 
 IndexPage.displayName = 'IndexPage';
 IndexPage.propTypes = propTypes;
 
 export default connect(mapStateToProps)(IndexPage);
-
-export const query = graphql`
-  query FirstChallenge {
-    challengeNode(order: { eq: 0 }, suborder: { eq: 1 }) {
-      fields {
-        slug
-      }
-    }
-    allChallengeNode(
-      filter: { isPrivate: { eq: false } }
-      sort: { fields: [superOrder, order, suborder] }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            blockName
-          }
-          id
-          block
-          title
-          isRequired
-          isPrivate
-          superBlock
-          dashedName
-        }
-      }
-    }
-    allMarkdownRemark(filter: { frontmatter: { block: { ne: null } } }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            block
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;

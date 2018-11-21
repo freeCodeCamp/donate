@@ -1,14 +1,13 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import isEmail from 'validator/lib/isEmail';
 
 import CardForm from './CardForm';
 import { injectStripe } from 'react-stripe-elements';
-import { postJSON$ } from '../../../templates/Challenges/utils/ajax-stream';
+import { postJSON$ } from '../../../../utils/ajax-stream.js';
 
 const propTypes = {
   email: PropTypes.string,
-  maybeButton: PropTypes.func.isRequired,
   renderCompletion: PropTypes.func.isRequired,
   stripe: PropTypes.shape({
     createToken: PropTypes.func.isRequired
@@ -23,14 +22,13 @@ const initialSate = {
   }
 };
 
-class DonateForm extends PureComponent {
+class DonateForm extends Component {
   constructor(...args) {
     super(...args);
-    const [props] = args;
 
     this.state = {
       ...initialSate,
-      email: props.email
+      email: null
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -113,7 +111,7 @@ class DonateForm extends PureComponent {
 
   renderDonateForm() {
     return (
-      <Fragment>
+      <div>
         <div className='text-center'>
           <p>
             freeCodeCamp.org is completely free.
@@ -133,13 +131,13 @@ class DonateForm extends PureComponent {
           amount={5}
           handleSubmit={this.handleSubmit}
         />
-        {this.props.maybeButton()}
-      </Fragment>
+      </div>
     );
   }
 
   renderEmailInput() {
-    const { email } = this.state;
+    const { email: stateEmail } = this.state;
+    const { email: propsEmail } = this.props;
     return (
       <div className='donation-email-container'>
         <label>
@@ -149,7 +147,7 @@ class DonateForm extends PureComponent {
             placeholder='email@example.com'
             required={true}
             type='email'
-            value={email}
+            value={stateEmail || propsEmail || ''}
           />
         </label>
       </div>

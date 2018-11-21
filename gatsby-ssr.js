@@ -23,11 +23,6 @@ exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
   setHeadComponents([...headComponents]);
   setPostBodyComponents([
     <script
-      async='true'
-      key='chai-CDN'
-      src='https://cdnjs.cloudflare.com/ajax/libs/chai/4.1.2/chai.min.js'
-    />,
-    <script
       async={true}
       src='https://www.googletagmanager.com/gtag/js?id=AW-795617839'
     />,
