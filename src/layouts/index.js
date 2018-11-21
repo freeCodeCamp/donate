@@ -7,7 +7,6 @@ import Helmet from 'react-helmet';
 import ga from '../analytics';
 
 import Header from '../components/Header';
-import DonationModal from '../components/Donation';
 import { fetchUser, userSelector } from '../redux/app';
 
 import 'prismjs/themes/prism.css';
@@ -99,7 +98,6 @@ class Layout extends PureComponent {
         <div className={'app-wrapper ' + theme}>
           <main>{children()}</main>
         </div>
-        <DonationModal />
       </Fragment>
     );
   }

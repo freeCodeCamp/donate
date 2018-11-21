@@ -2,7 +2,6 @@ import { createAction, handleActions } from 'redux-actions';
 import { uniqBy } from 'lodash';
 
 import { createTypes } from '../../../utils/stateManagment';
-import { types as challenge } from '../../templates/Challenges/redux';
 import fecthUserEpic from './fetch-user-epic';
 import hardGoToEpic from './hard-go-to-epic';
 
@@ -101,17 +100,6 @@ export const reducer = handleActions(
     [types.updateUserSignedIn]: (state, { payload }) => ({
       ...state,
       isSignedIn: payload
-    }),
-    [challenge.submitComplete]: (state, { payload: { id } }) => ({
-      ...state,
-      completionCount: state.completionCount + 1,
-      user: {
-        ...state.user,
-        completedChallenges: uniqBy(
-          [...state.user.completedChallenges, { id }],
-          'id'
-        )
-      }
     })
   },
   initialState
