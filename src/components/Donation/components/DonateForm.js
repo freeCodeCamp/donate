@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import isEmail from 'validator/lib/isEmail';
 
@@ -113,24 +113,15 @@ class DonateForm extends Component {
     return (
       <div>
         <div className='text-center'>
-          <p>
-            freeCodeCamp.org is completely free.
-          </p>
-          <p>
-            But it costs our nonprofit a lot of money to run all this.
-          </p>
+          <p>freeCodeCamp.org is completely free.</p>
+          <p>But it costs our nonprofit a lot of money to run all this.</p>
           <p>
             Join the <strong>4,102</strong> people who donate $5 / month.
           </p>
-          <p>
-            Let's build this community together.
-          </p>
+          <p>Let's build this community together.</p>
         </div>
         {this.renderEmailInput()}
-        <CardForm
-          amount={5}
-          handleSubmit={this.handleSubmit}
-        />
+        <CardForm amount={5} handleSubmit={this.handleSubmit} />
       </div>
     );
   }

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import Helmet from 'react-helmet';
 
@@ -6,21 +7,21 @@ import Spacer from '../components/util/Spacer';
 
 const OtherWaysToDonate = () => (
   <div>
-    <Helmet title="Other ways to donate | freeCodeCamp.org" />
+    <Helmet title='Other ways to donate | freeCodeCamp.org' />
     <Spacer />
     <Spacer />
     <Spacer />
-    <div className="container">
-      <div className="row">
-        <div className="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-          <h2 className="text-center">
+    <div className='container'>
+      <div className='row'>
+        <div className='col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3'>
+          <h2 className='text-center'>
             Other ways you can support the freeCodeCamp.org nonprofit
           </h2>
           <p>
             freeCodeCamp is a small donor-supported 501(c)(3) public charity. We
             are tax-exempt, so you can deduct donations you make to our
             nonprofit from your taxes. You can{' '}
-            <a href="https://s3.amazonaws.com/freecodecamp/Free+Code+Camp+Inc+IRS+Determination+Letter.pdf">
+            <a href='https://s3.amazonaws.com/freecodecamp/Free+Code+Camp+Inc+IRS+Determination+Letter.pdf'>
               download our IRS Determination Letter here
             </a>.
           </p>
@@ -32,122 +33,122 @@ const OtherWaysToDonate = () => (
             easily stop your donations at any time in the future.
           </p>
           <form
-            action="//www.paypal.com/cgi-bin/webscr"
-            method="post"
-            onsubmit="ga('send',  { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 5 } );"
-            target="_blank"
-          >
-            <input name="cmd" type="hidden" defaultValue="_s-xclick" />{' '}
+            action='//www.paypal.com/cgi-bin/webscr'
+            method='post'
+            onSubmit="ga('send',  { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 5 } );"
+            target='_blank'
+            >
+            <input defaultValue='_s-xclick' name='cmd' type='hidden' />{' '}
             <input
-              name="hosted_button_id"
-              type="hidden"
-              defaultValue="KTAXU8B4MYAT8"
+              defaultValue='KTAXU8B4MYAT8'
+              name='hosted_button_id'
+              type='hidden'
             />{' '}
             <input
-              className="btn btn-cta signup-btn btn-block"
-              name="submit"
-              type="submit"
-              defaultValue="Donate $5 each month"
+              className='btn btn-cta signup-btn btn-block'
+              defaultValue='Donate $5 each month'
+              name='submit'
+              type='submit'
             />
           </form>
-          <div className="spacer" />
+          <div className='spacer' />
           <form
-            action="//www.paypal.com/cgi-bin/webscr"
-            method="post"
-            onsubmit="ga('send',  { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 10} );"
-            target="_blank"
-          >
-            <input name="cmd" type="hidden" defaultValue="_s-xclick" />{' '}
+            action='//www.paypal.com/cgi-bin/webscr'
+            method='post'
+            onSubmit="ga('send',  { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 10} );"
+            target='_blank'
+            >
+            <input defaultValue='_s-xclick' name='cmd' type='hidden' />{' '}
             <input
-              name="hosted_button_id"
-              type="hidden"
-              defaultValue="BYEBQEHS5LHNC"
+              defaultValue='BYEBQEHS5LHNC'
+              name='hosted_button_id'
+              type='hidden'
             />{' '}
             <input
-              className="btn btn-cta signup-btn btn-block"
-              name="submit"
-              type="submit"
-              defaultValue="Donate $10 each month"
+              className='btn btn-cta signup-btn btn-block'
+              defaultValue='Donate $10 each month'
+              name='submit'
+              type='submit'
             />
           </form>
-          <div className="spacer" />
+          <div className='spacer' />
           <form
-            action="//www.paypal.com/cgi-bin/webscr"
-            method="post"
-            onsubmit="ga('send',  { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 35} );"
-            target="_blank"
-          >
-            <input name="cmd" type="hidden" defaultValue="_s-xclick" />{' '}
+            action='//www.paypal.com/cgi-bin/webscr'
+            method='post'
+            onSubmit="ga('send',  { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 35} );"
+            target='_blank'
+            >
+            <input defaultValue='_s-xclick' name='cmd' type='hidden' />{' '}
             <input
-              name="hosted_button_id"
-              type="hidden"
-              defaultValue="57ZPMKJ8G893Y"
+              defaultValue='57ZPMKJ8G893Y'
+              name='hosted_button_id'
+              type='hidden'
             />{' '}
             <input
-              className="btn btn-cta signup-btn btn-block"
-              name="submit"
-              type="submit"
-              defaultValue="Donate $35 each month"
+              className='btn btn-cta signup-btn btn-block'
+              defaultValue='Donate $35 each month'
+              name='submit'
+              type='submit'
             />
           </form>
-          <div className="spacer" />
+          <div className='spacer' />
           <form
-            action="//www.paypal.com/cgi-bin/webscr"
-            method="post"
-            onsubmit="ga('send', { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 50} );"
-            target="_blank"
-          >
-            <input name="cmd" type="hidden" defaultValue="_s-xclick" />{' '}
+            action='//www.paypal.com/cgi-bin/webscr'
+            method='post'
+            onSubmit="ga('send', { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 50} );"
+            target='_blank'
+            >
+            <input defaultValue='_s-xclick' name='cmd' type='hidden' />{' '}
             <input
-              name="hosted_button_id"
-              type="hidden"
-              defaultValue="2ZVYTHK6Q7AFW"
+              defaultValue='2ZVYTHK6Q7AFW'
+              name='hosted_button_id'
+              type='hidden'
             />{' '}
             <input
-              className="btn btn-cta signup-btn btn-block"
-              name="submit"
-              type="submit"
-              defaultValue="Donate $50 each month"
+              className='btn btn-cta signup-btn btn-block'
+              defaultValue='Donate $50 each month'
+              name='submit'
+              type='submit'
             />
           </form>
-          <div className="spacer" />
+          <div className='spacer' />
           <form
-            action="//www.paypal.com/cgi-bin/webscr"
-            method="post"
-            onsubmit="ga('send', { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 100} );"
-            target="_blank"
-          >
-            <input name="cmd" type="hidden" defaultValue="_s-xclick" />{' '}
+            action='//www.paypal.com/cgi-bin/webscr'
+            method='post'
+            onSubmit="ga('send', { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 100} );"
+            target='_blank'
+            >
+            <input defaultValue='_s-xclick' name='cmd' type='hidden' />{' '}
             <input
-              name="hosted_button_id"
-              type="hidden"
-              defaultValue="C7PUT3LMJHKK2"
+              defaultValue='C7PUT3LMJHKK2'
+              name='hosted_button_id'
+              type='hidden'
             />{' '}
             <input
-              className="btn btn-cta signup-btn btn-block"
-              name="submit"
-              type="submit"
-              defaultValue="Donate $100 each month"
+              className='btn btn-cta signup-btn btn-block'
+              defaultValue='Donate $100 each month'
+              name='submit'
+              type='submit'
             />
           </form>
-          <div className="spacer" />
+          <div className='spacer' />
           <form
-            action="//www.paypal.com/cgi-bin/webscr"
-            method="post"
-            onsubmit="ga('send', { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 250} );"
-            target="_blank"
-          >
-            <input name="cmd" type="hidden" defaultValue="_s-xclick" />{' '}
+            action='//www.paypal.com/cgi-bin/webscr'
+            method='post'
+            onSubmit="ga('send', { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal', eventValue: 250} );"
+            target='_blank'
+            >
+            <input defaultValue='_s-xclick' name='cmd' type='hidden' />{' '}
             <input
-              name="hosted_button_id"
-              type="hidden"
-              defaultValue="69JGTY4DHSTEN"
+              defaultValue='69JGTY4DHSTEN'
+              name='hosted_button_id'
+              type='hidden'
             />{' '}
             <input
-              className="btn btn-cta signup-btn btn-block"
-              name="submit"
-              type="submit"
-              defaultValue="Donate $250 each month"
+              className='btn btn-cta signup-btn btn-block'
+              defaultValue='Donate $250 each month'
+              name='submit'
+              type='submit'
             />
           </form>
           <hr />
@@ -158,22 +159,22 @@ const OtherWaysToDonate = () => (
             instructions on PayPal:
           </p>
           <form
-            action="//www.paypal.com/cgi-bin/webscr"
-            method="post"
-            onsubmit="ga('send', { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal one time donation', eventValue: 0} );"
-            target="_blank"
-          >
-            <input name="cmd" type="hidden" defaultValue="_s-xclick" />{' '}
+            action='//www.paypal.com/cgi-bin/webscr'
+            method='post'
+            onSubmit="ga('send', { hitType: 'event', eventCategory: 'donation', eventAction: 'click', eventLabel: 'paypal one time donation', eventValue: 0} );"
+            target='_blank'
+            >
+            <input defaultValue='_s-xclick' name='cmd' type='hidden' />{' '}
             <input
-              name="hosted_button_id"
-              type="hidden"
-              defaultValue="B256JC6ZCWD3J"
+              defaultValue='B256JC6ZCWD3J'
+              name='hosted_button_id'
+              type='hidden'
             />{' '}
             <input
-              className="btn btn-cta signup-btn btn-block"
-              name="submit"
-              type="submit"
-              defaultValue="Make a one-time donation"
+              className='btn btn-cta signup-btn btn-block'
+              defaultValue='Make a one-time donation'
+              name='submit'
+              type='submit'
             />
           </form>
           <hr />
@@ -182,7 +183,7 @@ const OtherWaysToDonate = () => (
             Many freeCodeCamp supporters are able to get their employers to
             match their donations to freeCodeCamp. Our Tax-exempt number (EIN)
             is 82-0779546. If we can help you with setting this up, please email{' '}
-            <a href="mailto:team@freecodecamp.org">team@freecodecamp.org</a>.
+            <a href='mailto:team@freecodecamp.org'>team@freecodecamp.org</a>.
           </p>
           <hr />
           <h3>Donate through a payroll deduction</h3>
@@ -201,22 +202,22 @@ const OtherWaysToDonate = () => (
             Below are our wallets where we can receive cryptocurrency donations.
           </p>
           <h4>Make a one-time Bitcoin donation</h4>
-          <p className="negative-15">
+          <p className='negative-15'>
             Our Bitcoin wallet is{' '}
             <code>12skYi7aMCjDUdrVdoB3JjZ77ug8gxJfbL</code>
           </p>
           <h4>Make a one-time Ethereum donation</h4>
-          <p className="negative-15">
+          <p className='negative-15'>
             Our Etherium wallet is{' '}
             <code>0x0ADbEf2471416BD8732cf0f3944294eE393CcAF5</code>
           </p>
           <h4>Make a one-time Litecoin donation</h4>
-          <p className="negative-15">
+          <p className='negative-15'>
             Our Litecoin wallet is{' '}
             <code>LKu8UG8Z1nbTxnq9Do96PsC3FwbNtycf3X</code>
           </p>
           <h4>Make a one-time Bitcoin Cash donation</h4>
-          <p className="negative-15">
+          <p className='negative-15'>
             Our Bitcoin Cash wallet is{' '}
             <code>1EBxPEJWrGZWxe2UayyAsnd5VsRg5H9xfu</code>
           </p>
@@ -231,7 +232,7 @@ const OtherWaysToDonate = () => (
           <h3>Donate Stock to freeCodeCamp</h3>
           <p>
             If you want to donate stocks to freeCodeCamp, please email us at{' '}
-            <a href="mailto:team@freecodecamp.org">team@freecodecamp.org</a>.
+            <a href='mailto:team@freecodecamp.org'>team@freecodecamp.org</a>.
           </p>
           <hr />
           <h3>Legacy Gift</h3>
@@ -239,7 +240,7 @@ const OtherWaysToDonate = () => (
             You can help future generations of learners by listing freeCodeCamp
             in your will or living trust. If you're interested in doing this,
             email Quincy directly and we can discuss this:{' '}
-            <a href="mailto:quincy@freecodecamp.org">quincy@freecodecamp.org</a>.
+            <a href='mailto:quincy@freecodecamp.org'>quincy@freecodecamp.org</a>.
           </p>
           <hr />
           <h3>
@@ -247,8 +248,8 @@ const OtherWaysToDonate = () => (
             community.
           </h3>
           <Spacer />
-          <div className="text-center">
-            <a href="/">Or go back.</a>
+          <div className='text-center'>
+            <a href='/'>Or go back.</a>
           </div>
           <Spacer />
         </div>
