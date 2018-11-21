@@ -31,6 +31,7 @@ class DonateForm extends Component {
       email: null
     };
 
+    this.getUserEmail = this.getUserEmail.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.postDonation = this.postDonation.bind(this);
@@ -46,8 +47,7 @@ class DonateForm extends Component {
   }
 
   handleSubmit() {
-    // Mrugesh Todo: Make is more reliable.
-    const email = this.refs.userEmail.value || '';
+    const email = this.getUserEmail();
     if (!email || !isEmail(email)) {
       return this.setState(state => ({
         ...state,
@@ -72,6 +72,12 @@ class DonateForm extends Component {
       }
       return this.postDonation(token);
     });
+  }
+
+  getUserEmail() {
+    const { email: stateEmail } = this.state;
+    const { email: propsEmail } = this.props;
+    return stateEmail || propsEmail || '';
   }
 
   postDonation(token) {
@@ -128,8 +134,6 @@ class DonateForm extends Component {
   }
 
   renderEmailInput() {
-    const { email: stateEmail } = this.state;
-    const { email: propsEmail } = this.props;
     return (
       <div className='donation-email-container'>
         <label>
@@ -137,10 +141,9 @@ class DonateForm extends Component {
           <input
             onChange={this.handleEmailChange}
             placeholder='email@example.com'
-            ref='userEmail'
             required={true}
             type='email'
-            value={stateEmail || propsEmail || ''}
+            value={this.getUserEmail()}
           />
         </label>
       </div>
