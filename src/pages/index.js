@@ -66,7 +66,7 @@ class IndexPage extends Component {
         <Spacer />
         <Spacer />
         <h2 style={{ textAlign: 'center' }}>
-          Support the freeCodeCamp.org nonprofit
+          Become a supporter
         </h2>
         <StripeProvider stripe={this.state.stripe}>
           <Elements>
@@ -75,15 +75,15 @@ class IndexPage extends Component {
                 email={email}
                 renderCompletion={this.renderCompletion}
               />
-              <Spacer />
-              <PoweredByStripe />
-              <Spacer />
             </Fragment>
           </Elements>
         </StripeProvider>
         <Spacer />
         <Spacer />
         <a href='/other-ways-to-donate'>Other ways to donate.</a>
+        <Spacer />
+        <PoweredByStripe />
+        <Spacer />
         <Spacer />
       </div>
     );
