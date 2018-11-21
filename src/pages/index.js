@@ -25,7 +25,7 @@ const mapStateToProps = createSelector(userSelector, ({ email = '' }) => ({
 }));
 
 // Stripe public key
-const stripeKey = 'pk_test_gqFA9NGMJiMawvkfLSdpjjxf';
+const stripeKey = 'pk_live_E6Z6xPM8pEsJziHW905zpAvF';
 
 class IndexPage extends Component {
   constructor(...props) {
