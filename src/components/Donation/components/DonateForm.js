@@ -46,7 +46,8 @@ class DonateForm extends Component {
   }
 
   handleSubmit() {
-    const { email } = this.state;
+    // Mrugesh Todo: Make is more reliable.
+    const email = this.refs.userEmail.value || '';
     if (!email || !isEmail(email)) {
       return this.setState(state => ({
         ...state,
@@ -136,6 +137,7 @@ class DonateForm extends Component {
           <input
             onChange={this.handleEmailChange}
             placeholder='email@example.com'
+            ref='userEmail'
             required={true}
             type='email'
             value={stateEmail || propsEmail || ''}

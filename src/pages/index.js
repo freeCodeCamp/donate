@@ -56,7 +56,6 @@ class IndexPage extends Component {
     return <DonateCompletion close={() => {}} {...props} />;
   }
   render() {
-    console.log(this.props);
     const { email = '' } = this.props;
     return (
       <div className='index-page-wrapper'>
