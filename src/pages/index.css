@@ -13,6 +13,7 @@
 }
 
 .index-page-wrapper p {
+  max-width: 555px;
   margin-bottom: 0.75rem;
 }
 
