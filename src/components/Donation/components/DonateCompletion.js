@@ -43,7 +43,6 @@ function DonateCompletion({ close, processing, reset, success, error = null }) {
             <span />
           </Fragment>
         )}
-        {!processing && <Button onClick={close}>Close</Button>}
       </p>
     </Alert>
   );
