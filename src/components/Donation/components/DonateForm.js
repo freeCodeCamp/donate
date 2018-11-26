@@ -5,6 +5,7 @@ import isEmail from 'validator/lib/isEmail';
 import CardForm from './CardForm';
 import { injectStripe } from 'react-stripe-elements';
 import { postJSON$ } from '../../../../utils/ajax-stream.js';
+import { jwt } from '../../../redux/cookieVaules.js';
 
 const propTypes = {
   email: PropTypes.string,
@@ -89,7 +90,10 @@ class DonateForm extends Component {
         processing: true
       }
     }));
-    return postJSON$('/external/donate/charge-stripe', {
+    const chargeStripePath = jwt
+      ? '/external/donate/charge-stripe'
+      : '/donate/charge-stripe';
+    return postJSON$(chargeStripePath, {
       token,
       amount
     }).subscribe(
@@ -122,7 +126,8 @@ class DonateForm extends Component {
         <div className='text-center'>
           <p>
               freeCodeCamp.org is a tiny nonprofit that's helping millions
-              of people learn to code for free. Join <strong>3,926</strong> supporters.
+              of people learn to code for free.
+              Join <strong>3,926</strong> supporters.
               Your $5 / month donation will help keep tech education
               free and open.
           </p>

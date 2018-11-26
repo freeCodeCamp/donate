@@ -11,7 +11,7 @@ const propTypes = {
   success: PropTypes.bool
 };
 
-function DonateCompletion({ close, processing, reset, success, error = null }) {
+function DonateCompletion({ processing, reset, success, error = null }) {
   /* eslint-disable no-nested-ternary */
   const style = processing ? 'info' : success ? 'success' : 'danger';
   const heading = processing
