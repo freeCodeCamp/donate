@@ -5,7 +5,6 @@ import isEmail from 'validator/lib/isEmail';
 import CardForm from './CardForm';
 import { injectStripe } from 'react-stripe-elements';
 import { postJSON$ } from '../../../../utils/ajax-stream.js';
-import { jwt } from '../../../redux/cookieVaules.js';
 
 const propTypes = {
   email: PropTypes.string,
@@ -91,9 +90,7 @@ class DonateForm extends Component {
         processing: true
       }
     }));
-    const chargeStripePath = jwt
-      ? '/external/donate/charge-stripe'
-      : '/donate/charge-stripe';
+    const chargeStripePath = '/unauthenticated/donate/charge-stripe';
     return postJSON$(chargeStripePath, {
       token,
       amount
@@ -126,25 +123,17 @@ class DonateForm extends Component {
       <div>
         <div className='text-left'>
           <p>
-              freeCodeCamp.org is a tiny nonprofit that's helping millions
-              of people learn to code for free.
-          </p>    
-          <p>
-              Join <strong>3,926</strong> supporters.
+            freeCodeCamp.org is a tiny nonprofit that's helping millions of
+            people learn to code for free.
           </p>
           <p>
-              Your $5 / month donation will help keep tech education
-              free and open.
-          </p>
-          <p> 
-              Please be sure to sign into freeCodeCamp first before you 
-              donate, or your donation won't go through.
+            Join <strong>3,926</strong> supporters.
           </p>
           <p>
-              You can              
-              <a href="https://www.freecodecamp.org/signin"> sign in here</a>.
+            Your $5 / month donation will help keep tech education free and
+            open.
           </p>
-          <hr/>
+          <hr />
         </div>
         {this.renderEmailInput()}
         <CardForm amount={5} handleSubmit={this.handleSubmit} />
@@ -159,7 +148,7 @@ class DonateForm extends Component {
           Your Email (we'll send you a tax-deductible donation receipt):
           <input
             onChange={this.handleEmailChange}
-            placeholder='Sign in first. Then your email will appear here.'
+            placeholder='me@example.com'
             required={true}
             type='text'
             value={this.getUserEmail()}
@@ -174,7 +163,9 @@ class DonateForm extends Component {
   }
 
   render() {
-    const { donationState: { processing, success, error } } = this.state;
+    const {
+      donationState: { processing, success, error }
+    } = this.state;
     const { renderCompletion } = this.props;
     if (processing || success || error) {
       return renderCompletion({
