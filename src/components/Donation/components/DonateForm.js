@@ -123,14 +123,27 @@ class DonateForm extends Component {
   renderDonateForm() {
     return (
       <div>
-        <div className='text-center'>
+        <div className='text-left'>
           <p>
               freeCodeCamp.org is a tiny nonprofit that's helping millions
               of people learn to code for free.
+          </p>    
+          <p>
               Join <strong>3,926</strong> supporters.
+          </p>
+          <p>
               Your $5 / month donation will help keep tech education
               free and open.
           </p>
+          <p> 
+              Please be sure to sign into freeCodeCamp first before you 
+              donate or your donation won't go through.
+          </p>
+          <p>
+              You can
+              <a href="https://www.freecodecamp.org/signin" target="_blank"> sign in here</a>.
+          </p>
+          <hr/>
         </div>
         {this.renderEmailInput()}
         <CardForm amount={5} handleSubmit={this.handleSubmit} />
