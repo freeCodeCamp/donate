@@ -159,7 +159,7 @@ class DonateForm extends Component {
           Your Email (we'll send you a tax-deductible donation receipt):
           <input
             onChange={this.handleEmailChange}
-            placeholder='Sign in first. Then your email should appear here automatically.'
+            placeholder='Sign in first. Then your email will appear here.'
             required={true}
             type='text'
             value={this.getUserEmail()}
