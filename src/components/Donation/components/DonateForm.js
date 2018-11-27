@@ -55,7 +55,8 @@ class DonateForm extends Component {
         donationState: {
           ...state.donationState,
           error:
-            'We need a valid email address to send your donation tax receipt to'
+            'We need a valid email address to which we can send your' +
+            ' donation tax receipt.'
         }
       }));
     }
@@ -137,11 +138,11 @@ class DonateForm extends Component {
           </p>
           <p> 
               Please be sure to sign into freeCodeCamp first before you 
-              donate or your donation won't go through.
+              donate, or your donation won't go through.
           </p>
           <p>
-              You can
-              <a href="https://www.freecodecamp.org/signin" target="_blank"> sign in here</a>.
+              You can              
+              <a href="https://www.freecodecamp.org/signin"> sign in here</a>.
           </p>
           <hr/>
         </div>
@@ -155,12 +156,12 @@ class DonateForm extends Component {
     return (
       <div className='donation-email-container'>
         <label>
-          Email (we'll send you a tax-deductible donation receipt):
+          Your Email (we'll send you a tax-deductible donation receipt):
           <input
             onChange={this.handleEmailChange}
-            placeholder='email@example.com'
+            placeholder='Sign in first. Then your email will appear here.'
             required={true}
-            type='email'
+            type='text'
             value={this.getUserEmail()}
           />
         </label>
