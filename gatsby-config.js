@@ -6,7 +6,7 @@ module.exports = {
     siteUrl: 'https://donate.freecodecamp.org'
   },
   proxy: {
-    prefix: '/external',
+    prefix: '/unauthenticated',
     url: 'http://localhost:3000'
   },
   plugins: [
