@@ -15,10 +15,10 @@ function DonateCompletion({ processing, reset, success, error = null }) {
   /* eslint-disable no-nested-ternary */
   const style = processing ? 'info' : success ? 'success' : 'danger';
   const heading = processing
-    ? 'We are processing your donation'
+    ? 'We are processing your donation.'
     : success
-      ? 'Donation successful. Thank you for supporting the freeCodeCamp.org ' +
-        'community!'
+      ? 'Your donation was successful. Thank you for supporting the ' +
+        'freeCodeCamp.org community.'
       : 'Something went wrong with your donation';
   return (
     <Alert bsStyle={style}>
