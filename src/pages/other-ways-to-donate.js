@@ -208,7 +208,7 @@ const OtherWaysToDonate = () => (
           </p>
           <h4>Make a one-time Ethereum donation</h4>
           <p className='negative-15'>
-            Our Etherium wallet is{' '}
+            Our Ethereum wallet is{' '}
             <code>0x0ADbEf2471416BD8732cf0f3944294eE393CcAF5</code>
           </p>
           <h4>Make a one-time Litecoin donation</h4>
