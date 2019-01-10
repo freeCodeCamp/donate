@@ -24,7 +24,7 @@ exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
   setPostBodyComponents([
     <script
       async={true}
-      src='https://www.googletagmanager.com/gtag/js?id=AW-795617839'
+      src='https://www.googletagmanager.com/gtag/js?id=UA-55446531-7'
     />,
     <script
       dangerouslySetInnerHTML={{
@@ -32,7 +32,7 @@ exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'AW-795617839');
+          gtag('config', 'UA-55446531-7');
         `
       }}
     />
