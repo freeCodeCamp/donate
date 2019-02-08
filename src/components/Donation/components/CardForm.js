@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 import StripCardForm from './StripeCardForm';
 
@@ -37,7 +37,7 @@ class CardForm extends PureComponent {
     const { amount } = this.props;
     const { isFormValid } = this.state;
     return (
-      <form className='donation-form' onSubmit={this.submit}>
+      <Form className='donation-form' onSubmit={this.submit}>
         <StripCardForm getValidationState={this.getValidationState} />
         <Button
           block={true}
@@ -49,7 +49,7 @@ class CardForm extends PureComponent {
           >
           {`Confirm your donation of $${amount} / month`}
         </Button>
-      </form>
+      </Form>
     );
   }
 }

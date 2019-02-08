@@ -74,11 +74,9 @@ class IndexPage extends Component {
     const { email = '' } = this.props;
     return (
       <div className='index-page-wrapper'>
-        <Spacer />
-        <Spacer />
+        <Spacer size={2}/>
         <Helmet title='Support the freeCodeCamp.org nonprofit' />
-        <Spacer />
-        <Spacer />
+        <Spacer size={2}/>
         <h2 style={{ textAlign: 'center' }}>Become a supporter</h2>
         <StripeProvider stripe={this.state.stripe}>
           <Elements>
@@ -90,13 +88,11 @@ class IndexPage extends Component {
             </Fragment>
           </Elements>
         </StripeProvider>
-        <Spacer />
-        <Spacer />
+        <Spacer size={2}/>
         <a href='/other-ways-to-donate'>Other ways to donate.</a>
         <Spacer />
         <PoweredByStripe />
-        <Spacer />
-        <Spacer />
+        <Spacer size={2}/>
       </div>
     );
   }

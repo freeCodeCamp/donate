@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import isEmail from 'validator/lib/isEmail';
+import {
+  Col,
+  ControlLabel,
+  FormControl,
+  FormGroup,
+  Row
+} from 'react-bootstrap';
 
 import CardForm from './CardForm';
 import { injectStripe } from 'react-stripe-elements';
@@ -120,41 +127,39 @@ class DonateForm extends Component {
 
   renderDonateForm() {
     return (
-      <div>
-        <div className='text-left'>
-          <p>
-            freeCodeCamp.org is a tiny nonprofit that's helping millions of
-            people learn to code for free.
-          </p>
-          <p>
-            Join <strong>4,380</strong> supporters.
-          </p>
-          <p>
-            Your $5 / month donation will help keep tech education free and
-            open.
-          </p>
-          <hr />
-        </div>
-        {this.renderEmailInput()}
-        <CardForm amount={5} handleSubmit={this.handleSubmit} />
-      </div>
-    );
-  }
-
-  renderEmailInput() {
-    return (
-      <div className='donation-email-container'>
-        <label>
-          Your Email (we'll send you a tax-deductible donation receipt):
-          <input
-            onChange={this.handleEmailChange}
-            placeholder='me@example.com'
-            required={true}
-            type='text'
-            value={this.getUserEmail()}
-          />
-        </label>
-      </div>
+      <Row>
+        <Col>
+          <div className='text-center'>
+            <p>
+              freeCodeCamp.org is a tiny nonprofit that's helping millions of
+              people learn to code for free.
+            </p>
+            <p>
+              Join <strong>4,380</strong> supporters.
+            </p>
+            <p>
+              Your $5 / month donation will help keep tech education free and
+              open.
+            </p>
+            <hr />
+          </div>
+          <div className='donation-email-container'>
+            <FormGroup>
+              <ControlLabel>
+                Your Email (we'll send you a tax-deductible donation receipt):
+              </ControlLabel>
+              <FormControl
+                onChange={this.handleEmailChange}
+                placeholder='me@example.com'
+                required={true}
+                type='email'
+                value={this.getUserEmail()}
+              />
+            </FormGroup>
+          </div>
+          <CardForm amount={5} handleSubmit={this.handleSubmit} />
+        </Col>
+      </Row>
     );
   }
 
