@@ -13,7 +13,8 @@ const propTypes = {
 
 const style = {
   base: {
-    color: '#006400'
+    color: '#006400',
+    fontSize: '18px'
   }
 };
 
@@ -75,15 +76,27 @@ class StripCardForm extends PureComponent {
       <div className='donation-elements'>
         <FormGroup>
           <ControlLabel>Your Card Number:</ControlLabel>
-          <CardNumberElement onChange={this.handleInputChange} style={style} />
+          <CardNumberElement
+            className='form-control donate-input-element'
+            onChange={this.handleInputChange}
+            style={style}
+          />
         </FormGroup>
         <FormGroup>
           <ControlLabel>Your Card Expiration Month:</ControlLabel>
-          <CardExpiryElement onChange={this.handleInputChange} style={style} />
+          <CardExpiryElement
+            className='form-control donate-input-element'
+            onChange={this.handleInputChange}
+            style={style}
+          />
         </FormGroup>
         <FormGroup>
           <ControlLabel>Your Card CVC (3-digit security number):</ControlLabel>
-          <CardCVCElement onChange={this.handleInputChange} style={style} />
+          <CardCVCElement
+            className='form-control donate-input-element'
+            onChange={this.handleInputChange}
+            style={style}
+          />
         </FormGroup>
       </div>
     );
