@@ -135,7 +135,7 @@ class DonateForm extends Component {
               people learn to code for free.
             </p>
             <p>
-              Join <strong>4,380</strong> supporters.
+              Join <strong>4,499</strong> supporters.
             </p>
             <p>
               Your $5 / month donation will help keep tech education free and
