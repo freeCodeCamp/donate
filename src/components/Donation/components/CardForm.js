@@ -19,16 +19,14 @@ class CardForm extends PureComponent {
       isCaptchaReady: false
     };
 
-    this.captcha = null;
+    this.captcha = React.createRef();
 
     this.getValidationState = this.getValidationState.bind(this);
     this.submit = this.submit.bind(this);
-    this.onVerify = this.onVerify.bind(this);
-    this.onLoad = this.onLoad.bind(this);
   }
 
-  onVerify = () => {
-    this.props.handleSubmit();
+  onVerify = (captchaToken) => {
+    this.props.handleSubmit(captchaToken);
   };
 
   onLoad = () => {
@@ -39,7 +37,7 @@ class CardForm extends PureComponent {
 
   submit(e) {
     e.preventDefault();
-    this.captcha.execute();
+    this.captcha.current.execute();
   }
 
   getValidationState(isFormValid) {
@@ -58,7 +56,7 @@ class CardForm extends PureComponent {
         <Reaptcha
           onLoad={this.onLoad}
           onVerify={this.onVerify}
-          ref={e => (this.captcha = e)}
+          ref={this.captcha}
           sitekey='6LfacJkUAAAAACGSu23khz5B_Vz4KOoaPrL2H4Pr'
           size='invisible'
         />
@@ -66,7 +64,7 @@ class CardForm extends PureComponent {
           block={true}
           bsSize='lg'
           bsStyle='primary'
-          disabled={!isFormValid && !isCaptchaReady}
+          disabled={!isFormValid || !isCaptchaReady}
           id='confirm-donation-btn'
           type='submit'
           >
