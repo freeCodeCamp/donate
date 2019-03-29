@@ -53,7 +53,7 @@ class DonateForm extends Component {
     }));
   }
 
-  handleSubmit() {
+  handleSubmit(captchaResponse) {
     const email = this.getUserEmail();
     if (!email || !isEmail(email)) {
       return this.setState(state => ({
@@ -63,6 +63,16 @@ class DonateForm extends Component {
           error:
             'We need a valid email address to which we can send your' +
             ' donation tax receipt.'
+        }
+      }));
+    }
+    if (!captchaResponse) {
+      return this.setState(state => ({
+        ...state,
+        donationState: {
+          ...state.donationState,
+          error:
+            'Something went wrong in validating the reCAPTCHA.'
         }
       }));
     }
@@ -78,7 +88,7 @@ class DonateForm extends Component {
           }
         }));
       }
-      return this.postDonation(token);
+      return this.postDonation(token, captchaResponse);
     });
   }
 
@@ -88,7 +98,7 @@ class DonateForm extends Component {
     return stateEmail || propsEmail || '';
   }
 
-  postDonation(token) {
+  postDonation(token, captchaResponse) {
     const { donationAmount: amount } = this.state;
     this.setState(state => ({
       ...state,
@@ -100,7 +110,8 @@ class DonateForm extends Component {
     const chargeStripePath = '/unauthenticated/donate/charge-stripe';
     return postJSON$(chargeStripePath, {
       token,
-      amount
+      amount,
+      captchaResponse
     }).subscribe(
       res =>
         this.setState(state => ({

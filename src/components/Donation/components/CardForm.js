@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
+import Reaptcha from 'reaptcha';
 
 import StripCardForm from './StripeCardForm';
 
@@ -14,16 +15,29 @@ class CardForm extends PureComponent {
     super(...props);
 
     this.state = {
-      isFormValid: false
+      isFormValid: false,
+      isCaptchaReady: false
     };
+
+    this.captcha = React.createRef();
 
     this.getValidationState = this.getValidationState.bind(this);
     this.submit = this.submit.bind(this);
   }
 
+  onVerify = (captchaToken) => {
+    this.props.handleSubmit(captchaToken);
+  };
+
+  onLoad = () => {
+    this.setState({
+      isCaptchaReady: true
+    });
+  };
+
   submit(e) {
     e.preventDefault();
-    this.props.handleSubmit();
+    this.captcha.current.execute();
   }
 
   getValidationState(isFormValid) {
@@ -35,15 +49,22 @@ class CardForm extends PureComponent {
 
   render() {
     const { amount } = this.props;
-    const { isFormValid } = this.state;
+    const { isFormValid, isCaptchaReady } = this.state;
     return (
       <Form className='donation-form' onSubmit={this.submit}>
         <StripCardForm getValidationState={this.getValidationState} />
+        <Reaptcha
+          onLoad={this.onLoad}
+          onVerify={this.onVerify}
+          ref={this.captcha}
+          sitekey='6LfacJkUAAAAACGSu23khz5B_Vz4KOoaPrL2H4Pr'
+          size='invisible'
+        />
         <Button
           block={true}
           bsSize='lg'
           bsStyle='primary'
-          disabled={!isFormValid}
+          disabled={!isFormValid || !isCaptchaReady}
           id='confirm-donation-btn'
           type='submit'
           >
