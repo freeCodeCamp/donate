@@ -20,9 +20,12 @@ const propTypes = {
   show: PropTypes.bool
 };
 
-const mapStateToProps = createSelector(userSelector, ({ email = '' }) => ({
-  email
-}));
+const mapStateToProps = createSelector(
+  userSelector,
+  ({ email = '' }) => ({
+    email
+  })
+);
 
 // Stripe public key
 const stripeKey = 'pk_live_E6Z6xPM8pEsJziHW905zpAvF';
@@ -73,26 +76,30 @@ class IndexPage extends Component {
   render() {
     const { email = '' } = this.props;
     return (
-      <div className='index-page-wrapper'>
-        <Spacer size={2}/>
-        <Helmet title='Support the freeCodeCamp.org nonprofit' />
-        <Spacer size={2}/>
-        <h2 style={{ textAlign: 'center' }}>Become a supporter</h2>
-        <StripeProvider stripe={this.state.stripe}>
-          <Elements>
-            <Fragment>
-              <DonateForm
-                email={email}
-                renderCompletion={this.renderCompletion}
-              />
-            </Fragment>
-          </Elements>
-        </StripeProvider>
-        <Spacer size={2}/>
-        <a href='/other-ways-to-donate'>Other ways to donate.</a>
+      <div>
+        <div className='index-page-wrapper'>
+          <Spacer size={2} />
+          <Helmet title='Support the freeCodeCamp.org nonprofit' />
+          <Spacer size={2} />
+          <h2 style={{ textAlign: 'center' }}>Become a supporter</h2>
+          <StripeProvider stripe={this.state.stripe}>
+            <Elements>
+              <Fragment>
+                <DonateForm
+                  email={email}
+                  renderCompletion={this.renderCompletion}
+                />
+              </Fragment>
+            </Elements>
+          </StripeProvider>
+          <Spacer size={2} />
+          <a className='otherways-link' href='/other-ways-to-donate'>Other ways to donate...</a>
+        </div>
         <Spacer />
-        <PoweredByStripe />
-        <Spacer size={2}/>
+        <div className='powered-by-wrapper'>
+          <PoweredByStripe />
+        </div>
+        <Spacer size={2} />
       </div>
     );
   }

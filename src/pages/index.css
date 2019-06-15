@@ -12,13 +12,15 @@
 }
 
 .index-page-wrapper p {
-  max-width: 555px;
   margin-bottom: 0.75rem;
+  font-size: 1.2em;
 }
 
 .donation-form {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 555px;
 }
 
 .donation-elements {
@@ -28,10 +30,28 @@
   justify-content: space-evenly;
 }
 
+.otherways-link {
+  font-size: 1.2em;
+}
+
+.powered-by-wrapper {
+  display: block;
+  position: fixed;
+  right: 100px;
+  bottom: 20px;
+}
+
 #donation-completion-body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.donation-form-and-email-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .donation-completion-buttons {
@@ -41,6 +61,11 @@
 
 .donation-completion-buttons button {
   margin: 0 10px;
+}
+
+.donation-email-container {
+  max-width: 555px;
+  width: 100%;
 }
 
 .donation-email-container label {
