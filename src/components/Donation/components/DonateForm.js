@@ -71,8 +71,7 @@ class DonateForm extends Component {
         ...state,
         donationState: {
           ...state.donationState,
-          error:
-            'Something went wrong in validating the reCAPTCHA.'
+          error: 'Something went wrong in validating the reCAPTCHA.'
         }
       }));
     }
@@ -154,21 +153,23 @@ class DonateForm extends Component {
             </p>
             <hr />
           </div>
-          <div className='donation-email-container'>
-            <FormGroup>
-              <ControlLabel>
-                Your Email (we'll send you a tax-deductible donation receipt):
-              </ControlLabel>
-              <FormControl
-                onChange={this.handleEmailChange}
-                placeholder='me@example.com'
-                required={true}
-                type='email'
-                value={this.getUserEmail()}
-              />
-            </FormGroup>
+          <div className='donation-form-and-email-wrapper'>
+            <div className='donation-email-container'>
+              <FormGroup>
+                <ControlLabel>
+                  Your Email (we'll send you a tax-deductible donation receipt):
+                </ControlLabel>
+                <FormControl
+                  onChange={this.handleEmailChange}
+                  placeholder='me@example.com'
+                  required={true}
+                  type='email'
+                  value={this.getUserEmail()}
+                />
+              </FormGroup>
+            </div>
+            <CardForm amount={5} handleSubmit={this.handleSubmit} />
           </div>
-          <CardForm amount={5} handleSubmit={this.handleSubmit} />
         </Col>
       </Row>
     );
