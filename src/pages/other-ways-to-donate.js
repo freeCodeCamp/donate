@@ -49,6 +49,7 @@ const OtherWaysToDonate = () => (
               defaultValue='Donate $5 each month'
               name='submit'
               type='submit'
+              value='Donate $5 each month'
             />
           </form>
           <div className='spacer' />
@@ -69,6 +70,7 @@ const OtherWaysToDonate = () => (
               defaultValue='Donate $10 each month'
               name='submit'
               type='submit'
+              value='Donate $10 each month'
             />
           </form>
           <div className='spacer' />
@@ -89,6 +91,7 @@ const OtherWaysToDonate = () => (
               defaultValue='Donate $35 each month'
               name='submit'
               type='submit'
+              value='Donate $35 each month'
             />
           </form>
           <div className='spacer' />
@@ -109,6 +112,7 @@ const OtherWaysToDonate = () => (
               defaultValue='Donate $50 each month'
               name='submit'
               type='submit'
+              value='Donate $50 each month'
             />
           </form>
           <div className='spacer' />
@@ -129,6 +133,7 @@ const OtherWaysToDonate = () => (
               defaultValue='Donate $100 each month'
               name='submit'
               type='submit'
+              value='Donate $100 each month'
             />
           </form>
           <div className='spacer' />
@@ -149,6 +154,7 @@ const OtherWaysToDonate = () => (
               defaultValue='Donate $250 each month'
               name='submit'
               type='submit'
+              value='Donate $250 each month'
             />
           </form>
           <hr />
@@ -175,6 +181,7 @@ const OtherWaysToDonate = () => (
               defaultValue='Make a one-time donation'
               name='submit'
               type='submit'
+              value='Make a one-time donation'
             />
           </form>
           <hr />
